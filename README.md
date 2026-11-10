@@ -51,3 +51,16 @@ Useful options:
 - Move the mouse to the **upper-left corner** for PyAutoGUI's emergency stop.
 - The script does not intentionally delete source files. Backups are recommended because it automates GUI clicks.
 - Exported MP4 files inherit the original `.360` file's creation and modification times.
+
+## Fixing timestamps of existing exports
+
+`sync_gopro_timestamps.py` copies the creation and modification times from each `.360` clip to its exported MP4. The exporter does this automatically; run the script separately for MP4s exported manually or by an older version. Give the `.360` folder first, then the MP4 folder. Without `--apply` it only shows what would change:
+
+```cmd
+py sync_gopro_timestamps.py "D:\Videos\Trip\MAX2" "D:\Videos\Trip\MAX2\rf"
+py sync_gopro_timestamps.py "D:\Videos\Trip\MAX2" "D:\Videos\Trip\MAX2\rf" --apply
+```
+
+- An MP4 matches a clip when it is named `<original_stem>.mp4` or `<original_stem>_<anything>.mp4`, e.g. `GS010018_reframed.mp4` or `GS010018_reframed_nohl.mp4`. `.partial.mp4` files are skipped.
+- `--suffix _reframed_nohl.mp4` limits matching to one naming pattern.
+- Only `.mp4` files are modified. If the first folder contains no `.360` files (e.g. the arguments are swapped), the script stops without changing anything.

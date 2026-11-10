@@ -12,6 +12,8 @@ Usage:
 Without --apply, displays the proposed changes without modifying files.
 Requires: py -m pip install pywin32
 """
+from __future__ import annotations
+
 import argparse
 from pathlib import Path
 import sys
