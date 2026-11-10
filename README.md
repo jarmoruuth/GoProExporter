@@ -12,7 +12,8 @@ Automates **GoPro Player** on Windows to export GoPro `.360` videos as reframed 
   ```
 
 - Keep `gopro_rating_title.png` alongside `gopro_sequential_export.py` for optional rating-popup detection.
-- Use the same display resolution and scaling as when the click coordinates were calibrated (2560 × 1440). Close GoPro Player before starting; avoid using the mouse or keyboard while it runs.
+- Use the same display resolution and scaling as when the click coordinates were calibrated (2560 × 1440). Note that you may need to fine tune the coordinates for you display.
+- Close GoPro Player before starting; avoid using the mouse or keyboard while it runs.
 
 ## Usage
 
@@ -51,6 +52,8 @@ Useful options:
 - Move the mouse to the **upper-left corner** for PyAutoGUI's emergency stop.
 - The script does not intentionally delete source files. Backups are recommended because it automates GUI clicks.
 - Exported MP4 files inherit the original `.360` file's creation and modification times.
+- Set the output resolution manually before export, it uses that resolution during export.
+- Set the export window small, without advanced options visible. Otherwise mouse click will not hit the correct button.
 
 ## Fixing timestamps of existing exports
 
